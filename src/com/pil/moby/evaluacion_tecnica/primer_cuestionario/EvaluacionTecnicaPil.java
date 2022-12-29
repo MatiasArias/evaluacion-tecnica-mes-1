@@ -1,3 +1,5 @@
+package com.pil.moby.evaluacion_tecnica.primer_cuestionario;
+
 public class EvaluacionTecnicaPil {
 
     public static void main(String[] args) {
