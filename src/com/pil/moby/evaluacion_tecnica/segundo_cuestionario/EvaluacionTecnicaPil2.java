@@ -1,6 +1,13 @@
 package main.java.com.pil.moby.evaluacion_tecnica.segundo_cuestionario;
 
 
+import com.pil.moby.evaluacion_tecnica.modelo.pojo.Candidato;
+import com.pil.moby.evaluacion_tecnica.modelo.pojo.Tecnologia;
+
+import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
+
 public class EvaluacionTecnicaPil2 {
 
     /**
@@ -43,7 +50,7 @@ public class EvaluacionTecnicaPil2 {
     }
 
     private static void resolverPunto1() {
-        // TODO: Realizar implementación.
+
     }
 
     private static void resolverPunto2() {
@@ -63,7 +70,7 @@ public class EvaluacionTecnicaPil2 {
     }
 
     private static void inicializarCandidatos() {
-        // TODO: Realizar implementación.
+
     }
 
     /**
