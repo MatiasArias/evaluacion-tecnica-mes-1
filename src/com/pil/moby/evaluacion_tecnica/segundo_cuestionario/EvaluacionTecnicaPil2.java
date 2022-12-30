@@ -1,4 +1,4 @@
-package main.java.com.pil.moby.evaluacion_tecnica.segundo_cuestionario;
+package com.pil.moby.evaluacion_tecnica.segundo_cuestionario;
 
 
 import com.pil.moby.evaluacion_tecnica.modelo.pojo.Candidato;
@@ -6,6 +6,7 @@ import com.pil.moby.evaluacion_tecnica.modelo.pojo.Tecnologia;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class EvaluacionTecnicaPil2 {
@@ -35,7 +36,7 @@ public class EvaluacionTecnicaPil2 {
         imprimirMensajePunto(3);
 
         // Desarrollo de la consigna 3.
-        resolverPunto3();
+        resolverPunto3(inicializarCandidatos());
 
         imprimirMensajePunto(4);
 
@@ -56,7 +57,7 @@ public class EvaluacionTecnicaPil2 {
     }
 
     private static void resolverPunto2(List<Candidato> listaCandidatos) {
-        System.out.println("\n Stream \n");
+        System.out.println(" Stream \n");
 
 
         listaCandidatos.stream().sorted().forEach(c -> {
@@ -80,12 +81,31 @@ public class EvaluacionTecnicaPil2 {
 
     }
 
-    private static void resolverPunto3() {
-        // TODO: Realizar implementación.
+    private static void resolverPunto3(List<Candidato> listaCandidatos) {
+        System.out.println(" Stream \n");
+
+        listaCandidatos.stream().sorted(Comparator.comparing(Candidato::getPretensionSalarial).reversed()).forEach(c -> {
+            System.out.println(c.getPretensionSalarial() + " - " + c.getNombre() + " " + c.getApellido());
+        });
+
+        System.out.println("\n Metodo burbuja \n");
+
+        for (int i = 0; i < listaCandidatos.size(); i++) {
+            for (int j = 0; j < listaCandidatos.size() - 1; j++) {
+                if (listaCandidatos.get(j).getPretensionSalarial()<listaCandidatos.get(j+1).getPretensionSalarial()) {
+                    Candidato aux = listaCandidatos.get(j);
+                    listaCandidatos.set(j,listaCandidatos.get(j+1));
+                    listaCandidatos.set(j+1,aux);
+                }
+            }
+        }
+        for (Candidato c : listaCandidatos){
+            System.out.println(c.getPretensionSalarial() +" - "+c.getNombre()+" "+c.getApellido());
+        }
     }
 
     private static void resolverPunto4() {
-        // TODO: Realizar implementación.
+        
     }
 
     private static void resolverPunto5() {
