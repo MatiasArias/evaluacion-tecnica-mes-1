@@ -41,7 +41,7 @@ public class EvaluacionTecnicaPil2 {
         imprimirMensajePunto(4);
 
         // Desarrollo de la consigna 3.
-        resolverPunto4();
+        resolverPunto4(inicializarCandidatos());
 
         imprimirMensajePunto(5);
 
@@ -104,8 +104,8 @@ public class EvaluacionTecnicaPil2 {
         }
     }
 
-    private static void resolverPunto4() {
-        
+    private static void resolverPunto4(List<Candidato> listaCandidatos) {
+        System.out.println(listaCandidatos.get(0).ordenarTecnologias());
     }
 
     private static void resolverPunto5() {
@@ -114,7 +114,6 @@ public class EvaluacionTecnicaPil2 {
 
     private static List<Candidato> inicializarCandidatos() {
         List<Candidato> listaCandidatos = new ArrayList<>() ;
-        List<Tecnologia> listaTecnologias = new ArrayList<>();
         Tecnologia java = new Tecnologia(1L , "Java");
         Tecnologia angular = new Tecnologia(2L , "Angular");
         Tecnologia sql = new Tecnologia(3L , "SQL");
