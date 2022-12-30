@@ -105,7 +105,10 @@ public class EvaluacionTecnicaPil2 {
     }
 
     private static void resolverPunto4(List<Candidato> listaCandidatos) {
-        System.out.println(listaCandidatos.get(0).ordenarTecnologias());
+        Candidato candidatoMayorExperiencia = listaCandidatos.stream().max(Comparator.comparing(Candidato::getAniosExperiencia)).get();
+        System.out.println(candidatoMayorExperiencia);
+        System.out.println("\nTecnologias ordenadas:");
+        System.out.println(candidatoMayorExperiencia.ordenarTecnologias());
     }
 
     private static void resolverPunto5() {
