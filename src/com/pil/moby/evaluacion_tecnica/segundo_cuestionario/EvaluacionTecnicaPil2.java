@@ -30,7 +30,7 @@ public class EvaluacionTecnicaPil2 {
         imprimirMensajePunto(2);
 
         // Desarrollo de la consigna 2.
-        resolverPunto2();
+        resolverPunto2(inicializarCandidatos());
 
         imprimirMensajePunto(3);
 
@@ -55,8 +55,29 @@ public class EvaluacionTecnicaPil2 {
         }
     }
 
-    private static void resolverPunto2() {
-        // TODO: Realizar implementación.
+    private static void resolverPunto2(List<Candidato> listaCandidatos) {
+        System.out.println("\n Stream \n");
+
+
+        listaCandidatos.stream().sorted().forEach(c -> {
+            System.out.println(c.getId() + " - " + c.getNombre() + " " + c.getApellido());
+        });
+
+        System.out.println("\n Metodo burbuja \n");
+
+        for (int i = 0; i < listaCandidatos.size(); i++) {
+            for (int j = 0; j < listaCandidatos.size() - 1; j++) {
+                if (listaCandidatos.get(j).compareTo(listaCandidatos.get(j+1)) > 0) {
+                    Candidato aux = listaCandidatos.get(j);
+                    listaCandidatos.set(j,listaCandidatos.get(j+1));
+                    listaCandidatos.set(j+1,aux);
+                }
+            }
+        }
+        for (Candidato c : listaCandidatos){
+            System.out.println(c.getId() +" - "+c.getNombre()+" "+c.getApellido());
+        }
+
     }
 
     private static void resolverPunto3() {
