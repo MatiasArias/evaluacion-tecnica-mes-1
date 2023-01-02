@@ -3,11 +3,13 @@ package com.pil.moby.evaluacion_tecnica.segundo_cuestionario;
 
 import com.pil.moby.evaluacion_tecnica.modelo.pojo.Candidato;
 import com.pil.moby.evaluacion_tecnica.modelo.pojo.Tecnologia;
+import org.w3c.dom.ls.LSOutput;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class EvaluacionTecnicaPil2 {
 
@@ -46,7 +48,7 @@ public class EvaluacionTecnicaPil2 {
         imprimirMensajePunto(5);
 
         // Desarrollo de la consigna 3.
-        resolverPunto5();
+        resolverPunto5(inicializarCandidatos());
 
     }
 
@@ -111,8 +113,15 @@ public class EvaluacionTecnicaPil2 {
         System.out.println(candidatoMayorExperiencia.ordenarTecnologias());
     }
 
-    private static void resolverPunto5() {
-        // TODO: Realizar implementación.
+    private static void resolverPunto5(List<Candidato> listaCandidatos) {
+        Candidato candidatoMayorCantTecnologias = listaCandidatos.stream().max(Comparator.comparing(c ->{
+            return c.getTecnologias().size();
+        })).get();
+        System.out.println(candidatoMayorCantTecnologias);
+        System.out.println("\nTecnologias con id par");
+        candidatoMayorCantTecnologias.getTecnologias()
+                .stream().filter(Tecnologia::esIdPar).findFirst()
+                .ifPresentOrElse((tecnologia)->System.out.println(tecnologia), ()->System.out.println("No existen tecnologias con ID par"));
     }
 
     private static List<Candidato> inicializarCandidatos() {
