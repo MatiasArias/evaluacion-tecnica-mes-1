@@ -9,6 +9,10 @@ public class Tecnologia {
         this.nombre = nombre;
     }
 
+    public boolean esIdPar(){
+        return (this.id % 2 == 0);
+    }
+
     public Long getId() {
         return id;
     }
